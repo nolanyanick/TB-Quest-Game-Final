@@ -764,40 +764,47 @@ namespace TB_QuestGame
             //
             int inventoryObjectToRemoveId = _gameConsoleView.DisplayGetGameObjectToPutDown();
 
-            //
-            // get game object from the universe
-            //
-            GameObject gameObject = _gameUniverse.GetObjectById(inventoryObjectToRemoveId, _gamePrisoner);
-
-            //
-            // remove game object from player's inventory
-            // and set location Id to current location
-            //
-            if (gameObject is Treasure)
-            {
-                _gamePrisoner.TreasureInventory.Remove(gameObject as Treasure);
-                gameObject.RoomLocationId = _gamePrisoner.RoomLocationId;
-            }
-            else if (gameObject is Medicine)
-            {
-                _gamePrisoner.MedicinePouch.Remove(gameObject as Medicine);
-                gameObject.RoomLocationId = _gamePrisoner.RoomLocationId;
-            }
-            else if (gameObject is Weapon)
-            {
-                _gamePrisoner.Inventory.Remove(gameObject);
-                gameObject.RoomLocationId = _gamePrisoner.RoomLocationId;
+            if (inventoryObjectToRemoveId == 0)
+            {               
+                return;
             }
             else
             {
-                _gamePrisoner.Inventory.Remove(gameObject);
-                gameObject.RoomLocationId = _gamePrisoner.RoomLocationId;
-            }
+                //
+                // get game object from the universe
+                //
+                GameObject gameObject = _gameUniverse.GetObjectById(inventoryObjectToRemoveId, _gamePrisoner);
 
-            //
-            // display confirmation message
-            //
-            _gameConsoleView.DisplayConfirmGameObjectRemovedFromInvetory(gameObject);            
+                //
+                // remove game object from player's inventory
+                // and set location Id to current location
+                //
+                if (gameObject is Treasure)
+                {
+                    _gamePrisoner.TreasureInventory.Remove(gameObject as Treasure);
+                    gameObject.RoomLocationId = _gamePrisoner.RoomLocationId;
+                }
+                else if (gameObject is Medicine)
+                {
+                    _gamePrisoner.MedicinePouch.Remove(gameObject as Medicine);
+                    gameObject.RoomLocationId = _gamePrisoner.RoomLocationId;
+                }
+                else if (gameObject is Weapon)
+                {
+                    _gamePrisoner.Inventory.Remove(gameObject);
+                    gameObject.RoomLocationId = _gamePrisoner.RoomLocationId;
+                }
+                else
+                {
+                    _gamePrisoner.Inventory.Remove(gameObject);
+                    gameObject.RoomLocationId = _gamePrisoner.RoomLocationId;
+                }
+
+                //
+                // display confirmation message
+                //
+                _gameConsoleView.DisplayConfirmGameObjectRemovedFromInvetory(gameObject);
+            }                    
         }
 
         /// <summary>

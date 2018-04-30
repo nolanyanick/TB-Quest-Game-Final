@@ -2838,7 +2838,7 @@ namespace TB_QuestGame
                     //
                     // validate chosen game object
                     //
-                    if (objectToPutDown != null)
+                    if (objectToPutDown != null && gameObjectId != 0)
                     {
                         validInventoryObjectId = true;
                     }
