@@ -18,37 +18,19 @@ namespace TB_QuestGame
                 Id = 1,
                 Name = "Bernard Ebrhard",
                 RoomLocationId = 1,
-                ExperiencePoints = 50,
+                ExperiencePoints = 25,
                 HealthPoints = 10,
                 Description = "A man dressed in fine clothing; seems like he comes from nobility.",
                 Messages = new List<string>()
                 {
-                    "Oh, hello there. It's clear that you're not nobility...quite a shame indeed. " +
-                    "My name is Bernard Ebrhard, heir to the Ebrhard fortune...at least I was.",
-
-                    "If you're wondering why someone like me is here, keep guessing, you'll " +
-                    "never find out.",
-
-                    "Even though we may be in here together, that doesn't mean we're equals. Now buzz off! ",
-
-                    "Ugh, this place is crawling with deviants and horrors of the worst kind. " +
-                    "And you have got ot be the most annoying. Congratulations.",
-
-                    "If I am to spend the rest of my days in this place, the last thing I want to do " +
-                    "is spend my time talking to you.",
-
-                    "Must you insist on continuing to annoy me!",
+                    "Oh, hello there. I my name is Bernard.",
 
                     "Oh, I suppose you want to get out of here...well join the club. " +
                     "But if you promise to leave me alone for the rest of eternity, " +
                     "I can tell you what I know.",
 
-                    "Seek out the dwarf by the name of Silas, the man's 342 years old and has been here as long as I can remember " +
-                    "he's bound to have information on breaking out of this cesspit. However, allow " +
-                    "me to give a formal warning; there is no exit. Once you're here, you're here for life.",
-
-                    "Ah yes, my apologies. You can find Mr. Silas a few cell blocks from here in an area " +
-                    "know as the 'Forgotten Vault', it's where he spends most of his time."
+                    "Seek out the dwarf by the name of Silas, he's bound to have the information youre looking for. " +
+                    "You can find him a few cell blocks from here in an area known as the Forgotten Vault.",                   
                 }
             },
 
@@ -76,7 +58,7 @@ namespace TB_QuestGame
             {
                 Id = 4,
                 Name = "Insane Man",
-                RoomLocationId = 3,
+                RoomLocationId = 7,
                 ExperiencePoints = 10,
                 HealthPoints = 10,
                 Description = "A man wearing dirty ragged clothes, speaks only one word.",
@@ -98,10 +80,8 @@ namespace TB_QuestGame
                 Messages = new List<string>()
                 {
                     "Hello fellow prisoner, nice to see a new face down here.",
-                    "If havent already noticed, I'm a cleric. One of the best in all the land.",
-                    "Let us skip the small talk, dearie. I'm far too old to waste time on trivial things. " +
-                    "But if you ever need healing you know where to find me",
-                    "I see. By the power of the light and prosperity, I heal thee!"
+                    "If you haven't already noticed, I'm a cleric. One of the best in all the land.",
+                    "Goodbye",
                 }
             },
 
@@ -117,7 +97,7 @@ namespace TB_QuestGame
                 Messages = new List<string>()
                 {
                     "I know what you seek.",
-                    "You seek a way out, a way to freedom. I can help you, but first you must answer me this...",
+                    "You seek a way out, a way to freedom. I can help you, but first you must answer me this...",                    
                 },
                 Riddle = "...I fly without wings. I cry without eyes. What am I?",                                                  
             },
@@ -132,27 +112,21 @@ namespace TB_QuestGame
                 Id = 3,
                 Name = "Silas",
                 RoomLocationId = 2,
-                ExperiencePoints = 50,
+                ExperiencePoints = 25,
                 Description = "A wise old dwarf with a long white beard.",
                 Messages = new List<string>()
                 {
                     "Hello stranger! My name is Silas.",
 
-                    "Ahhh, so good ole Bernard sent ya? Well, I'd be more than happy to provide you with any assistance you need!",
+                    "Well, I'd be more than happy to provide you with any assistance you need!",                    
 
-                    "HA! You're looking for a way out, I should've guessed!",
-
-                    "Well, there is a passage leading to a room of unknown origin...a room that holds doors leading " +
-                    "to other worlds, at least according to the rumors. Now I have been to this perculiar room before " +
-                    "and I can tell ya this, there are doors in there but noone nor do I have any idea as to where they lead." +
-                    " \n" +
-                    "I would suggest heading to that room, it's certainly a possibility that one of those doors is the way out. " +
-                    "However getting there will cost your life.....unless you have this flawless diamond to gain access.",
+                    "Well, there is a passage leading to a room of unknown origin...a room that holds a door leading " +
+                    "out of this place.", 
 
                     "There is very deadly and dangerous troll who patrols the halls leading to the room. " +
-                    "The troll wont hesitate to rip you to shreds, unless ofcourse you offer him a diamond for safe passage.",
+                    "The troll wont be too friendly unless you offer him a diamond for safe passage.",
 
-                    "Now ofcourse I can help ya break outta here, kid....but I require a little payment of my own first....",
+                    "Now I can help you break outta here....but I require a little payment of my own first....",
 
                     "Find me a beautiful shiny emerald for my collection and I'll see that you get what you need."
                 },
@@ -164,6 +138,7 @@ namespace TB_QuestGame
                         Name = "Diamond",
                         Type = GameObject.ObjectType.Treasure,
                         RoomLocationId = 4,
+                        TradingObjectId = 13,
                         Description = "Flawless diamond. \n\n" +
                         "This item can be traded for an Emerald.",
                         Value = 500,
@@ -179,9 +154,9 @@ namespace TB_QuestGame
                         Name = "Royal Necklace",
                         Type = GameObject.ObjectType.Treasure,
                         RoomLocationId = 2,
-                        TradingObjectId = 5,
+                        TradingObjectId = 6,
                         Description = "Ornate necklace won by royalty. \n\n" +
-                        "This item can be traded for some Crab Legs.",
+                        "This item can be traded for a Ruby.",
                         Value = 75,
                         Rarity = Treasure.RarityLevel.Unique,
                         CanInventory = true,
@@ -219,38 +194,20 @@ namespace TB_QuestGame
                 Id = 6,
                 Name = "Mr. Bones",
                 RoomLocationId = 4,
-                ExperiencePoints = 50,
+                ExperiencePoints = 25,
                 Description = "A large troll with a fascination for shiny rocks.",
                 Messages = new List<string>()
                 {
-                    "You there! where do you think you're going?",
+                    "You there! Where do you think you're going?",
 
-                    "Bwahahaha! You want passgage through MY corridor?! Well it's gonna cost you!",
+                    "You want passgage through MY corridor?! Well it's gonna cost you!",
 
-                    "I see that you have a gem there and not just any old gem but a diamond, a very " +
-                    "beautiful one at that.",
+                    "I desire a diamond, fool!",
 
-                    "Tell you what, you hand over that there jewell annd I'll let you go on your merry way....alive.",
+                    "Get that jewell and I'll let you go on your merry way....alive.",
                 },
                 Inventory = new List<GameObject>()
                 {
-                    new Food
-                    {
-                        Id = 3,
-                        HealthPoints = -10,
-                        IsSpoiled = false,
-                        Name = "Moldy Bread",
-                        Type = GameObject.ObjectType.Food,
-                        RoomLocationId = 7,
-                        TradingObjectId = 7,
-                        Description = "Bread covered in repulsive mold. \n\n" +
-                        "This item can be tradeed for some Bread.",
-                        Value = 0,
-                        CanInventory = false,
-                        IsConsumable = true,
-                        IsVisible = true
-                    },
-
                     new Key
                     {
                     Id = 79,
@@ -269,7 +226,7 @@ namespace TB_QuestGame
 
                 InventoryIds = new List<int>()
                 {
-                    3, 79
+                    79
                 }
             },
 	        #endregion
@@ -281,9 +238,9 @@ namespace TB_QuestGame
                 Id = 90,
                 Name = "Skeleton",
                 RoomLocationId = -1,
-                ExperiencePoints = 50,
+                ExperiencePoints = 25,
                 HealthPoints = 100,
-                DamageOutput = 10,
+                DamageOutput = 5,
                 Description = "A walking skeleton holding a sword, cetainly not friendly.",
             },
 
@@ -292,9 +249,9 @@ namespace TB_QuestGame
                 Id = 91,
                 Name = "Swarm of Bats",
                 RoomLocationId = -1,
-                ExperiencePoints = 50,
+                ExperiencePoints = 25,
                 HealthPoints = 100,
-                DamageOutput = 10,
+                DamageOutput = 5,
                 Description = "A swarm of angry bats.",
             },
 
@@ -303,9 +260,9 @@ namespace TB_QuestGame
                 Id = 92,
                 Name = "Corrupted Soul",
                 RoomLocationId = -1,
-                ExperiencePoints = 75,
+                ExperiencePoints = 50,
                 HealthPoints = 100,
-                DamageOutput = 15,
+                DamageOutput = 9,
                 Description = "A lost soul gone mad.",
             },
 
@@ -314,9 +271,9 @@ namespace TB_QuestGame
                 Id = 93,
                 Name = "Zombie",
                 RoomLocationId = -1,
-                ExperiencePoints = 75,
+                ExperiencePoints = 50,
                 HealthPoints = 100,
-                DamageOutput = 15,
+                DamageOutput = 9,
                 Description = "A living undead looking for food.",
             },
 
@@ -325,9 +282,9 @@ namespace TB_QuestGame
                 Id = 94,
                 Name = "Evil Warlock",
                 RoomLocationId = -1,
-                ExperiencePoints = 100,
-                HealthPoints = 125,
-                DamageOutput = 20,
+                ExperiencePoints = 75,
+                HealthPoints = 100,
+                DamageOutput = 11,
                 Description = "A powerful warlock with malicious intent.",
             },
             new Monster
@@ -335,10 +292,10 @@ namespace TB_QuestGame
                 Id = 95,
                 Name = "Rock Troll",
                 RoomLocationId = -1,
-                ExperiencePoints = 100,
-                HealthPoints = 125,
-                DamageOutput = 20,
-                Description = "A swarm of angry bats.",
+                ExperiencePoints = 75,
+                HealthPoints = 100,
+                DamageOutput = 11,
+                Description = "An anrgy troll.",
             },
 
             #endregion
@@ -350,9 +307,9 @@ namespace TB_QuestGame
                 Id = 96,
                 Name = "Crystal Troll",
                 RoomLocationId = -1,
-                ExperiencePoints = 250,
-                HealthPoints = 250,
-                DamageOutput = 25,
+                ExperiencePoints = 100,
+                HealthPoints = 125,
+                DamageOutput = 12,
                 Description = "A giant crystal troll.",
             },
             new Boss
@@ -360,9 +317,9 @@ namespace TB_QuestGame
                 Id = 97,
                 Name = "Undead Knight",
                 RoomLocationId = -1,
-                ExperiencePoints = 500,
-                HealthPoints = 350,
-                DamageOutput = 35,
+                ExperiencePoints = 200,
+                HealthPoints = 150,
+                DamageOutput = 14,
                 Description = "A powerful undead knight.",
             },
             new Boss
@@ -370,9 +327,9 @@ namespace TB_QuestGame
                 Id = 98,
                 Name = "Firey Demon",
                 RoomLocationId = -1,
-                ExperiencePoints = 1000,
-                HealthPoints = 450,
-                DamageOutput = 45,
+                ExperiencePoints = 300,
+                HealthPoints = 200,
+                DamageOutput = 16,
                 Description = "A mailcious demon, capable of mass destruction.",
             },
 

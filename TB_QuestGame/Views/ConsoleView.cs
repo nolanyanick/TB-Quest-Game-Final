@@ -1477,7 +1477,7 @@ namespace TB_QuestGame
                     #region ***COLORS FOR LIST GAME OBJECTS SCREEN PT. 2
 
                     GetContinueKey();
-                    DisplayGamePlayScreen("List: Game Obejcts - Continued", Text.ListAllGameObjects(), ActionMenu.AdminMenu, "");
+                    DisplayGamePlayScreen("List: Game Obejcts - Continued", Text.ListAllGameObjectsPageTwo(), ActionMenu.AdminMenu, "");
 
                     //----ID----// 
                     cursorPosition = 7;

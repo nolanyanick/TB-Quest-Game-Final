@@ -14,8 +14,8 @@ namespace TB_QuestGame
         //
         // splash screen colors
         //
-        public static ConsoleColor SplashScreenBackgroundColor = ConsoleColor.Gray;
-        public static ConsoleColor SplashScreenForegroundColor = ConsoleColor.Red;
+        public static ConsoleColor SplashScreenBackgroundColor = ConsoleColor.DarkGray;
+        public static ConsoleColor SplashScreenForegroundColor = ConsoleColor.DarkRed;
 
         //
         // main console window colors

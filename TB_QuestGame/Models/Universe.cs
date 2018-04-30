@@ -399,66 +399,74 @@ namespace TB_QuestGame
                 }
             }
 
-            if (prisoner.DamageOutput <= 15)
-            {
-                //temp list of Monsters to be used for random selection
-                List<Monster> tempMonsterList = new List<Monster>();
 
-                foreach (var monster in listOfAllMonsters)
-                {
-                    if (monster.DamageOutput == 10)
-                    {
-                        tempMonsterList.Add(monster);
-                    }
-                }
-
-                Random random = new Random();
-                int randomNumber = random.Next(tempMonsterList.Count);
-                monsterToDoBattle = tempMonsterList[randomNumber];
-            }
-            else if (prisoner.DamageOutput <= 25)
-            {
-                //temp list of Monsters to be used for random selection
-                List<Monster> tempMonsterList = new List<Monster>();
-
-                foreach (var monster in listOfAllMonsters)
-                {
-                    if (monster.DamageOutput == 15)
-                    {
-                        tempMonsterList.Add(monster);
-                    }
-                }
-
-                Random random = new Random();
-                int randomNumber = random.Next(tempMonsterList.Count);
-                monsterToDoBattle = tempMonsterList[randomNumber];
-            }
-            else if (prisoner.DamageOutput <= 40)
-            {
-                //temp list of Monsters to be used for random selection
-                List<Monster> tempMonsterList = new List<Monster>();
-
-                foreach (var monster in listOfAllMonsters)
-                {
-                    if (monster.DamageOutput == 20)
-                    {
-                        tempMonsterList.Add(monster);
-                    }
-                }
-
-                Random random = new Random();
-                int randomNumber = random.Next(tempMonsterList.Count);
-                monsterToDoBattle = tempMonsterList[randomNumber];
-            }
-            else
-            {            
-                Random random = new Random();
-                int randomNumber = random.Next(listOfAllMonsters.Count);
-                monsterToDoBattle = listOfAllMonsters[randomNumber];
-            }
-        
+            Random random = new Random();
+            int randomNumber = random.Next(listOfAllMonsters.Count);
+            monsterToDoBattle = listOfAllMonsters[randomNumber];
 
             return monsterToDoBattle;
+
+
+
+
+
+
+
+
+            //if (prisoner.DamageOutput <= 15)
+            //{
+            //    //temp list of Monsters to be used for random selection
+            //    List<Monster> tempMonsterList = new List<Monster>();
+
+            //    foreach (var monster in listOfAllMonsters)
+            //    {
+            //        if (monster.DamageOutput == 10)
+            //        {
+            //            tempMonsterList.Add(monster);
+            //        }
+            //    }
+
+            //}
+            //else if (prisoner.DamageOutput <= 25)
+            //{
+            //    //temp list of Monsters to be used for random selection
+            //    List<Monster> tempMonsterList = new List<Monster>();
+
+            //    foreach (var monster in listOfAllMonsters)
+            //    {
+            //        if (monster.DamageOutput == 15)
+            //        {
+            //            tempMonsterList.Add(monster);
+            //        }
+            //    }
+
+            //    Random random = new Random();
+            //    int randomNumber = random.Next(tempMonsterList.Count);
+            //    monsterToDoBattle = tempMonsterList[randomNumber];
+            //}
+            //else if (prisoner.DamageOutput <= 40)
+            //{
+            //    //temp list of Monsters to be used for random selection
+            //    List<Monster> tempMonsterList = new List<Monster>();
+
+            //    foreach (var monster in listOfAllMonsters)
+            //    {
+            //        if (monster.DamageOutput == 20)
+            //        {
+            //            tempMonsterList.Add(monster);
+            //        }
+            //    }
+
+            //    Random random = new Random();
+            //    int randomNumber = random.Next(tempMonsterList.Count);
+            //    monsterToDoBattle = tempMonsterList[randomNumber];
+            //}
+            //else
+            //{            
+            //    Random random = new Random();
+            //    int randomNumber = random.Next(listOfAllMonsters.Count);
+            //    monsterToDoBattle = listOfAllMonsters[randomNumber];
+            //}        
         }
 
         /// <summary>

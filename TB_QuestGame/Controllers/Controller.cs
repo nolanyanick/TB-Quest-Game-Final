@@ -162,6 +162,7 @@ namespace TB_QuestGame
                         //
                         // display game play screen with current location info and coordiantes
                         //
+                        ActionMenu.currentMenu = ActionMenu.CurrentMenu.MainMenu;
                         _gameConsoleView.DisplayGamePlayScreen("Current Location", Text.CurrentLocationInfo(_currentLocation), ActionMenu.MainMenu, "");
                         _gameConsoleView.DisplayColoredText("", PlayerAction.ReturnToMainMenu, _currentLocation);
                         break;
@@ -247,7 +248,7 @@ namespace TB_QuestGame
                                 if (_gamePrisoner.Health <= 0)
                                 {
                                     _gamePrisoner.RoomLocationId = currentLocationId;
-                                    _gamePrisoner.Health = 100;
+                                    _gamePrisoner.Health = 500;
                                 }
                             }                         
                         }
@@ -378,7 +379,7 @@ namespace TB_QuestGame
             #region ***STARTING STATS
 
             _gamePrisoner.ExperiencePoints = 0;
-            _gamePrisoner.Health = 1;
+            _gamePrisoner.Health = 500;
             _gamePrisoner.Lives = 3;
             _gamePrisoner.Level = 1;
             _gamePrisoner.ExpCap = 200;
@@ -403,9 +404,9 @@ namespace TB_QuestGame
         {
             bool levelUp = false;
 
-            // chec to see if player picked up new weapon
+            // check to see if player picked up new weapon
             // re-calculate damage output based on player's weapon            
-            _gamePrisoner.DamageOutput = 40 + _gamePrisoner.Weapon.Damage;
+            _gamePrisoner.DamageOutput = 20 + _gamePrisoner.Weapon.Damage;
             
             //
             // reset all monster health points if necessary
@@ -415,32 +416,34 @@ namespace TB_QuestGame
                 if (npc is Monster)
                 {
                     Monster monster = npc as Monster;
-                    if (monster.DamageOutput == 10 || monster.DamageOutput == 15)
+                    if (monster.DamageOutput == 5 || monster.DamageOutput == 9 || monster.DamageOutput == 11)
                     {
                         if (monster.HealthPoints < 100)
                         {
                             monster.HealthPoints = 100;
                         }
                     }
-                    if (monster.DamageOutput == 20)
+                    if (monster.DamageOutput == 12)
                     {
                         if (monster.HealthPoints < 125)
                         {
                             monster.HealthPoints = 125;
                         }
                     }
-                    if (monster.DamageOutput == 20)
+                    if (monster.DamageOutput == 14)
                     {
-                        monster.HealthPoints = 250;
+                        if (monster.HealthPoints <150)
+                        {
+                            monster.HealthPoints = 150;
+                        }
                     }
-                    if (monster.DamageOutput == 35)
+                    if (monster.DamageOutput == 16)
                     {
-                        monster.HealthPoints = 350;
-                    }
-                    if (monster.DamageOutput == 45)
-                    {
-                        monster.HealthPoints = 450;
-                    }
+                        if (monster.HealthPoints < 200)
+                        {
+                            monster.HealthPoints = 200;
+                        }
+                    }         
                 }
             }
 
@@ -635,17 +638,16 @@ namespace TB_QuestGame
             if (_gamePrisoner.Health == 0)
             {
                 _gamePrisoner.Lives -= 1;
-                _gamePrisoner.Health = 100;
+                _gamePrisoner.Health = 500;
             }
 
             if (_gamePrisoner.ExperiencePoints > _gamePrisoner.ExpCap)
             {
                 levelUp = true;
-                _gamePrisoner.Health = 100;
-                _gamePrisoner.DamageOutput += 2;
+                _gamePrisoner.Health = 500;                
                 _gamePrisoner.Level += 1;
                 _gamePrisoner.Lives += 1;
-                _gamePrisoner.ExpCap += _gamePrisoner.ExpCap * 2;
+                _gamePrisoner.ExpCap += (_gamePrisoner.ExpCap * 2);
 
                 _gamePrisoner.RoomLocationId = 6;
                 _gamePrisoner.MedicinePouch.Add((Medicine)_gameUniverse.GetObjectById(64, _gamePrisoner));
@@ -949,6 +951,7 @@ namespace TB_QuestGame
 
                     case PlayerAction.Heal:
 
+                        _currentLocation = _gameUniverse.GetRoomLocationById(_gamePrisoner.RoomLocationId);
                         ActionMenu.currentMenu = ActionMenu.CurrentMenu.HealMenu;
                         _gameConsoleView.DisplayHeal(monster, cursorPosition);
                         _gameConsoleView.DisplayBattleStats(monster);
@@ -1163,8 +1166,7 @@ namespace TB_QuestGame
                     Console.SetCursorPosition(ConsoleLayout.MessageBoxPositionLeft + 2, ConsoleLayout.MenuBoxPositionTop + cursorPosition);
                     Console.Write("Press the Enter key to continue.");
                     _gameConsoleView.GetContinueKey();
-                    ActionMenu.currentMenu = ActionMenu.CurrentMenu.MainMenu;
-                    _gamePrisoner.Lives -= 1;
+                    ActionMenu.currentMenu = ActionMenu.CurrentMenu.MainMenu;                    
                     battling = false;
                     break;
                 }
@@ -1311,9 +1313,9 @@ namespace TB_QuestGame
                     //
                     // add life if health greater than 100
                     //
-                    if (_gamePrisoner.Health > 100)
+                    if (_gamePrisoner.Health > 500)
                     {
-                        _gamePrisoner.Health = 100;
+                        _gamePrisoner.Health = 500;
                         _gamePrisoner.Lives += 1;
                     }
 
@@ -1323,6 +1325,7 @@ namespace TB_QuestGame
                     if (objectPickedUp.IsConsumable)
                     {
                         objectPickedUp.RoomLocationId = -1;
+                        _gamePrisoner.Inventory.Remove(objectPickedUp);
                     }
                     break;
 

@@ -233,6 +233,31 @@ namespace TB_QuestGame
         }
 
         /// <summary>
+        /// displays all game objects on a 2nd page
+        /// </summary>
+        public static string ListAllGameObjectsPageTwo()
+        {
+            //
+            // display table name and column headers
+            //             
+            string messageBoxText =
+                "Game Objects - CONTINUED\n" +
+                " \n" +
+
+                //
+                // display table header
+                //
+                "ID".PadRight(10) +
+                "Name".PadRight(30) +
+                "Room Location Id".PadRight(10) + " \n" +
+                "---".PadRight(10) +
+                "------------------".PadRight(30) +
+                "------------------".PadRight(10) + " \n";
+
+            return messageBoxText;
+        }
+
+        /// <summary>
         /// displays all game objects
         /// </summary>
         public static string ListAllGameObjects()
@@ -325,19 +350,19 @@ namespace TB_QuestGame
                 "---".PadRight(10) +               
                 "------------------".PadRight(30) + " \n";
 
-            //
-            // display all game objects in rows
-            //
-            string gameObjectRows = null;
-            foreach (GameObject gameObject in gameObjects)
-            {
-                gameObjectRows +=
-                    $"{gameObject.Id}".PadRight(10) +
-                    $"{gameObject.Name}".PadRight(30) +                    
-                    Environment.NewLine;
-            }
+            ////
+            //// display all game objects in rows
+            ////
+            //string gameObjectRows = null;
+            //foreach (GameObject gameObject in gameObjects)
+            //{
+            //    gameObjectRows +=
+            //        $"{gameObject.Id}".PadRight(10) +
+            //        $"{gameObject.Name}".PadRight(30) +                    
+            //        Environment.NewLine;
+            //}
 
-            messageBoxText += gameObjectRows;
+            //messageBoxText += gameObjectRows;
 
             return messageBoxText;
         }
@@ -373,10 +398,14 @@ namespace TB_QuestGame
 
                 $"The {gameObject.Name} has a value of {gameObject.Value} and ";
 
-            if (gameObject.CanInventory)
+            if (gameObject is Food)
+            {
+                meassageTextBox += "cannot be added to your inventory.";
+            }
+            else if (gameObject.CanInventory)
             {
                 meassageTextBox += "can be added to your inventory.";
-            }
+            }           
             else
             {
                 meassageTextBox += "cannot be added to your inventory.";
