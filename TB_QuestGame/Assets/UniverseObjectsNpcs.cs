@@ -64,7 +64,7 @@ namespace TB_QuestGame
                 Description = "A man wearing dirty ragged clothes, speaks only one word.",
                 Messages = new List<string>()
                 {
-                    "...WHAT..."
+                    "...CLOUDS..."
                 }
             },
 

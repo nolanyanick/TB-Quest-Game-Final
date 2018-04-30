@@ -108,7 +108,7 @@ namespace TB_QuestGame
                 "either, adding to the already omnious atmosphere.",
                 GeneralContents = "There is a large, ornate door opposite of where you came in. Hundreds of " +
                 "carvings line the walls, floor, and cieling of this room. One carving, positioned on the floor right" +
-                " in front of the door. It says: 'The mighty Gold King demands an offering for passage.' *HINT: Drop something here.",
+                " in front of the door. It says: 'The mighty Gold King demands an offering for passage.' HINT: *Drop(Put Down) something here.*",
                 Accessible = true,
                 ExperiencePoints = 10
             },
